@@ -16,19 +16,7 @@ window.CGL_TOP_PRODUCTS = [
     ]
   },
   {
-    region: "美国站 🇺🇸",
-    season: "去年 10 月",
-    tip: "美国市场偏好宽松卫衣、工装风、加绒保暖",
-    items: [
-      { no: "JP-101", img: "images/demand-mens-hoodie.svg" },
-      { no: "JP-102", img: "images/demand-mens-jacket.svg" },
-      { no: "JP-103", img: "images/demand-big-tee.svg" },
-      { no: "JP-104", img: "images/demand-kids-set.svg" },
-      { no: "JP-105", img: "images/demand-home-set.svg" }
-    ]
-  },
-  {
-    region: "欧洲站 🇪🇺",
+    region: "英国站/欧盟 🇪🇺",
     season: "去年 10 月",
     tip: "欧洲市场偏好针织、呢料、素雅色系",
     items: [
