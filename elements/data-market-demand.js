@@ -12,18 +12,8 @@
 window.CGL_MARKET_DEMAND = {
   updated: "2026-09-04",
   items: [
-    { no: "7647843250", spu: "7647843250", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/30/d9/178539970573ab5a23001ce162c3d339e1d004c7d1_thumbnail_900x.webp", tag: "常规" },
-    { no: "7647835442", spu: "7647835442", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/30/d9/178539970573ab5a23001ce162c3d339e1d004c7d1_thumbnail_900x.webp", tag: "常规" },
-    { no: "7647829748", spu: "7647829748", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/30/d9/178539970573ab5a23001ce162c3d339e1d004c7d1_thumbnail_900x.webp", tag: "常规" },
-    { no: "7647827875", spu: "7647827875", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/30/d9/178539970573ab5a23001ce162c3d339e1d004c7d1_thumbnail_900x.webp", tag: "常规" },
-    { no: "7647828818", spu: "7647828818", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/30/d9/178539970573ab5a23001ce162c3d339e1d004c7d1_thumbnail_900x.webp", tag: "常规" },
-    { no: "7647849006", spu: "7647849006", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/30/d9/178539970573ab5a23001ce162c3d339e1d004c7d1_thumbnail_900x.webp", tag: "常规" },
     { no: "7648382710", spu: "7648382710", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/02/ab/17829853893b7328953dca0f480bca038401cc84cf_thumbnail_900x.webp", tag: "高优" },
     { no: "7648389070", spu: "7648389070", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/02/ab/17829853893b7328953dca0f480bca038401cc84cf_thumbnail_900x.webp", tag: "高优" },
-    { no: "7648407037", spu: "7648407037", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/02/ab/17829853893b7328953dca0f480bca038401cc84cf_thumbnail_900x.webp", tag: "高优" },
-    { no: "7648387534", spu: "7648387534", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/02/ab/17829853893b7328953dca0f480bca038401cc84cf_thumbnail_900x.webp", tag: "高优" },
-    { no: "7648382709", spu: "7648382709", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/02/ab/17829853893b7328953dca0f480bca038401cc84cf_thumbnail_900x.webp", tag: "高优" },
-    { no: "7648358987", spu: "7648358987", cat: "", style: "", img: "https://img.ltwebstatic.com/v4/j/spmp/2026/07/02/ab/17829853893b7328953dca0f480bca038401cc84cf_thumbnail_900x.webp", tag: "高优" },
     { no: "7620406413", spu: "7620406413", cat: "", style: "", img: "https://m.media-amazon.com/images/I/61prP52bGCL._AC_SX679_.jpg", tag: "常规" },
     { no: "7610801155", spu: "7610801155", cat: "", style: "", img: "http://img.ltwebstatic.com/v4/j/pi/2026/01/22/35/1769070387667429e7d2d87771e0a2d7710683d991.jpg", tag: "高优" },
     { no: "7595696709", spu: "7595696709", cat: "", style: "", img: "https://m.media-amazon.com/images/I/81a08HrYvtL._AC_SX425_.jpg", tag: "常规" },
