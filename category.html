@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>类目筛选 | 成桂零对接服务站</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230066CC'/%3E%3Ctext x='50' y='70' font-size='56' text-anchor='middle' fill='%23fff' font-family='serif'%3E成%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="elements/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="seal">成</span>
+      <span>
+        <span class="bt">成桂零对接服务站</span>
+        <span class="bs">男装 · 童装 · 大码男装 · 家居服</span>
+      </span>
+    </a>
+    <nav class="topnav">
+      <a href="index.html">← 返回首页</a>
+      <a href="index.html#sec-cat">类目指引</a>
+    </nav>
+    <span class="today js-date"></span>
+  </div>
+</header>
+
+<section class="hero" style="padding:32px 0 28px">
+  <div class="wrap">
+    <span class="tagline">🗂 类目筛选</span>
+    <h1 style="font-size:clamp(26px,4vw,42px)">类目 <span class="hl">快速筛选</span></h1>
+    <p class="sub">按品类 / 一层二层 / 季节 / 分组 / 人群 等维度逐级筛选，一键复制完整类目路径，用于提报对照。</p>
+    <div class="banner warn" style="max-width:820px">
+      <div><b>💡 使用说明</b>顶部切换品类（男装 / 童装 / 大码男装 / 家居服），再按各维度筛选；支持关键词搜索，点击「复制路径」直接获取完整类目。</div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+  <!-- 品类 Tab -->
+  <section class="sec reveal" style="padding-top:20px">
+    <div class="sec-head">
+      <span class="sec-no">品类</span>
+      <h2 class="sec-title">选择类目表</h2>
+    </div>
+    <div class="regiontabs" id="catTabs"></div>
+  </section>
+
+  <!-- 维度 + 搜索 -->
+  <section class="sec reveal" style="padding-top:8px">
+    <div class="sec-head">
+      <span class="sec-no">筛选</span>
+      <h2 class="sec-title">按维度筛选</h2>
+      <span class="sec-sub" id="resultCount"></span>
+    </div>
+    <div class="searchbar">
+      <div class="inwrap">
+        <input type="search" id="kw" placeholder="输入关键词，如：T恤 / 牛仔 / 浴袍 / 睡衣...">
+      </div>
+      <button type="button" class="btn ghost" id="resetBtn">↺ 重置</button>
+    </div>
+    <div class="card" id="dims"><span class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span> 加载中...</span></div>
+  </section>
+
+  <!-- 结果 -->
+  <section class="sec reveal" style="padding-top:8px">
+    <div class="card" id="results"><span class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span> 加载中...</span></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><b>成桂零对接服务站</b><br>类目筛选工具 · 男装 / 童装 / 大码男装 / 家居服</div>
+    <div class="dis">
+      <b>数据维护</b><br>
+      数据文件：elements/data-full-categories.js，由类目 Excel 生成。更新表格后重新生成该文件即可同步。
+    </div>
+    <div><span style="cursor:pointer" class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 返回顶部</span></div>
+  </div>
+</footer>
+
+<script src="elements/data-full-categories.js"></script>
+<script src="elements/common.js"></script>
+<script src="elements/category-filter.js"></script>
+</body>
+</html>

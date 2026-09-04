@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>市场需求图片区 | 成桂零对接服务站</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23b23a2e'/%3E%3Ctext x='50' y='70' font-size='56' text-anchor='middle' fill='%23fff8ec' font-family='serif'%3E成%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="elements/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="seal">成</span>
+      <span>
+        <span class="bt">成桂零对接服务站</span>
+        <span class="bs">男装 · 童装 · 大码男装 · 家居服</span>
+      </span>
+    </a>
+    <nav class="topnav">
+      <a href="index.html">← 返回首页</a>
+      <a href="index.html#sec-market">市场需求</a>
+    </nav>
+    <span class="today js-date"></span>
+  </div>
+</header>
+
+<section class="hero" style="padding:30px 0 26px">
+  <div class="wrap">
+    <span class="tagline">🔥 市场需求 · 高优</span>
+    <h1 style="font-size:clamp(26px,4vw,40px)">相似品 / 相同品 <span class="hl">提报参考</span></h1>
+    <p class="sub">复制「款式编号 + 商品 SPU」同步给成桂零即可提报。点击图片可放大查看；支持按编号 / SPU / 关键词搜索。<span id="updDate"></span></p>
+    <div class="banner red" style="max-width:820px">
+      <div><b>⚠️ 免责声明</b>本页面展示的图片仅为款式参考，不可直接复制或侵权使用。所有图片版权归原品牌所有，本页面不承担任何因侵权产生的法律责任。商家应确保所提报的商品具有合法来源和授权。</div>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <div class="searchbar">
+    <div class="inwrap">
+      <input type="search" id="kw" placeholder="搜索款式编号 / SPU / 款式描述 / 类目…" oninput="applyFilter()">
+    </div>
+    <select id="catFilter" style="width:160px" onchange="applyFilter()">
+      <option value="">全部分类</option>
+    </select>
+    <select id="tagFilter" style="width:140px" onchange="applyFilter()">
+      <option value="">全部等级</option>
+      <option value="高优">高优</option>
+      <option value="常规">常规</option>
+    </select>
+    <span style="font-size:13px;color:var(--ink2);align-self:center" id="countTip"></span>
+  </div>
+
+  <div class="grid g7" id="grid"><span class="loading"><span class="dot"></span><span class="dot"></span><span class="dot"></span> 加载中...</span></div>
+
+  <div class="banner info" style="margin-top:26px">
+    <div><b>📌 提报流程</b>① 在下方查找相似款 → ② 点击图片放大核对 → ③ 复制「款式编号 + SPU」→ ④ 通过企微 / 对接群同步给成桂零即可。</div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div><b>成桂零对接服务站</b><br>市场需求图片区 · 男装 / 童装 / 大码男装 / 家居服</div>
+    <div class="dis">
+      <b>数据维护</b><br>
+      数据文件：elements/data-market-demand.js。真实款式图片放入 images/ 目录后，把文件名填入数据文件的 img 字段即可。
+    </div>
+    <div><span style="cursor:pointer" class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 返回顶部</span></div>
+  </div>
+</footer>
+
+<script src="elements/data-market-demand.js"></script>
+<script src="elements/common.js"></script>
+<script>
+(function(){
+  var DATA=window.CGL_MARKET_DEMAND;
+  var items=[];
+  var $=function(id){return document.getElementById(id);};
+
+  function init(){
+    if(!DATA||!DATA.items){
+      $('grid').innerHTML='<p class="ph">未找到数据文件 elements/data-market-demand.js</p>';
+      return;
+    }
+    items=DATA.items;
+    if(DATA.updated) $('updDate').textContent='（数据更新：'+DATA.updated+'）';
+    /* 类目下拉 */
+    var cats=[];
+    items.forEach(function(it){ if(cats.indexOf(it.cat)<0) cats.push(it.cat); });
+    var h='<option value="">全部分类</option>';
+    cats.forEach(function(c){ h+='<option value="'+CGL.esc(c)+'">'+CGL.esc(c)+'</option>'; });
+    $('catFilter').innerHTML=h;
+    applyFilter();
+  }
+
+  function applyFilter(){
+    var kw=($('kw').value||'').trim().toLowerCase();
+    var cat=$('catFilter').value;
+    var tag=$('tagFilter').value;
+    var list=items.filter(function(it){
+      if(cat && it.cat!==cat) return false;
+      if(tag && (it.tag||'')!==tag) return false;
+      if(kw){
+        var hay=(it.no+' '+(it.spu||'')+' '+(it.style||'')+' '+(it.cat||'')).toLowerCase();
+        if(hay.indexOf(kw)<0) return false;
+      }
+      return true;
+    });
+    $('countTip').textContent='共 '+list.length+' 款';
+    var h='';
+    for(var i=0;i<list.length;i++){
+      h+=cardHtml(list,list[i],i);
+    }
+    $('grid').innerHTML= h || '<p class="ph" style="padding:30px 0">未找到匹配款式，换个关键词试试</p>';
+    window._mdList=list;
+  }
+  window.applyFilter=applyFilter;
+
+  function cardHtml(list,it,i){
+    return '<div class="imgcard" onclick="openDemand('+i+')">'+
+      '<div class="ph"><img src="'+CGL.esc(it.img)+'" alt="'+CGL.esc(it.style||it.no)+'" loading="lazy"></div>'+
+      '<div class="pbody">'+
+      '<div class="pno">'+CGL.esc(it.no)+'</div>'+
+      '<div class="pspu">SPU: '+CGL.esc(it.spu||'-')+'</div>'+
+      '<div class="pmeta"><span>'+CGL.esc(it.cat)+'</span><span class="'+(it.tag==='高优'?'hi':'')+'">'+CGL.esc(it.tag||'常规')+'</span></div>'+
+      '</div></div>';
+  }
+
+  window.openDemand=function(i){
+    var it=window._mdList[i];
+    if(!it) return;
+    CGL.viewImage({
+      img:it.img, title:it.style||it.no, cat:it.cat, tag:it.tag,
+      extra:[['款式编号',it.no],['商品SPU',it.spu],['提报方式','复制编号+SPU 同步成桂零']],
+      acts:[
+        {label:'复制 编号 + SPU',cls:'accent',fn:function(){CGL.copyText(it.no+' | '+it.spu);}},
+        {label:'复制编号',fn:function(){CGL.copyText(it.no);}},
+        {label:'复制SPU',fn:function(){CGL.copyText(it.spu||'');}}
+      ]
+    });
+  };
+
+  document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+</body>
+</html>
